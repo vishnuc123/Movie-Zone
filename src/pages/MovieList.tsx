@@ -2,11 +2,17 @@ import  { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import { getMovies } from '../service/getMovies'
 import { getSearchMovies } from '../service/getSearchMovies'
+import { useNavigate } from 'react-router-dom'
 
 const MovieList = () => {
     const [movies, setMovies] = useState([])
     const [originalMovies, setOriginalMovies] = useState([])
     const [searchquery,setSearchQuery] = useState('')
+    const navigate = useNavigate()
+
+    const handleBack =() => {
+        navigate('/')
+    }
 
     const handleSearch = async (e:any) => {
         e.preventDefault()
@@ -36,6 +42,7 @@ const MovieList = () => {
         <div className='bg-black'>
             <div className='bg-black'>
   <div className='flex justify-center items-center p-5'>
+    <button onClick={handleBack} className='bg-white mr-3 px-3 cursor-pointer hover:bg-red-500 rounded-full w-[100px] h-10 font-semibold'> back</button>
     <form onSubmit={handleSearch} className='flex items-center gap-4'>
       <input
         onChange={(e) => setSearchQuery(e.target.value)}

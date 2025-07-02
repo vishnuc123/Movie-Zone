@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react'
+import  { useEffect, useRef, useState } from 'react'
 import Navbar from '../components/Navbar'
 import poster1 from '/login/poster1.jpg'
 import poster2 from '/login/poster2.jpg'
